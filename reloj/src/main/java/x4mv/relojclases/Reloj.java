@@ -160,6 +160,11 @@ public void restaReloj(Reloj reloj){
     System.out.println("Hora restada");
     System.out.println(nuevaHora.toString());
 
+//    public void mostrarHora() {
+//        System.out.println("Hora actual: " + toString());
+//    }CJ: Para cumplir con la tarea
+
+
 }
     
 }
