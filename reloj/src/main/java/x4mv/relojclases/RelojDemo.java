@@ -9,6 +9,7 @@ public class RelojDemo {
     public static void main(String[] args) {
   
         System.out.println("Creando un cambio en otra rama");
+        System.out.println("Creando un cambio en otra rama2");
 
         Reloj default1 = new Reloj();
         System.out.println("Hora sin parametros");
