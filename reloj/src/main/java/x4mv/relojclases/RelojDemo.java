@@ -8,6 +8,7 @@ public class RelojDemo {
      */
     public static void main(String[] args) {
    
+        System.out.println("REVISADO Y APROBADO POR ALEXIS CANETE");
 
         Reloj default1 = new Reloj();
         System.out.println("Hora sin parametros");
