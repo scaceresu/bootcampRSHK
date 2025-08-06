@@ -3,6 +3,9 @@ package x4mv.relojclases;
 import java.util.Scanner;
 
 public class RelojDemo {
+    /**
+     * @param args
+     */
     public static void main(String[] args) {
   
         System.out.println("Creando un cambio en otra rama");
@@ -44,6 +47,9 @@ public class RelojDemo {
         Reloj reloj = new Reloj(tiempoSegundos);
         System.out.println("===> Hora ingresada <=== ");
         System.out.println(reloj.toString());
+        System.out.println("La hora es: " + reloj.getHora());
+        System.out.println("Los minutos son: " + reloj.getMinutos());
+        System.out.println("Los segundos son: " + reloj.getSegundos());
 
         // agregamos 10 segundos
         for (int i = 0; i < 10; i++) {
@@ -69,17 +75,11 @@ public class RelojDemo {
             reloj.tickDecrement();
         }
 
-
-
-
         scan.close();
         
-        
-
         // Reloj suma = new Reloj(43200);
         
         // reloj.addReloj(suma);
-
-
+        
     }
 }
