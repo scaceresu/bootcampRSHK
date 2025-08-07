@@ -28,6 +28,8 @@ public class Generala {
                 System.out.println("POKER!!!");
             }else if (checkEscalera(intentoGenerado)){
                 System.out.println("ESCALERA!!!");
+            }else if(checkFull(intentoGenerado)){
+                System.out.println("ES FULL!!!");
             }
 
             
@@ -125,7 +127,31 @@ public class Generala {
 
         return true;
     }
+    
+    public static boolean checkFull(int[] intento) {
+        // Mapa para contar cuántas veces aparece cada valor
+        Map<Integer, Integer> contador = new HashMap<>();
 
+        for (int i = 0; i < intento.length; i++) {
+            contador.put(intento[i], contador.getOrDefault(intento[i], 0) + 1);
+        }
+
+        boolean hayTres = false;
+        boolean hayDos = false;
+
+        // Recorremos los valores del mapa para ver si hay un grupo de 3 y uno de 2
+        for (int cantidad : contador.values()) {
+            if (cantidad == 3) {
+                hayTres = true;
+            } else if (cantidad == 2) {
+                hayDos = true;
+            }
+        }
+
+        return hayTres && hayDos;
+    }
+    
+   
     public static void responderPreguntas(){
 
         // 2.1. Cuál es la probabilidad de sacar generala en un tiro 
