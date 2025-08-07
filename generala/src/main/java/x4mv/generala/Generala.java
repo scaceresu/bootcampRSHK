@@ -111,6 +111,12 @@ public class Generala {
     public static boolean checkEscalera(int[] intento){
 
         Arrays.sort(intento);
+        int[] esperado = {1, 3, 4, 5, 6};
+
+        if (Arrays.equals(intento, esperado)){
+            return true;
+
+        }
         for (int i = 0; i < intento.length-1; i++) {
             if(Math.abs(intento[i] - intento[i+1]) != 1){
                 return false;
