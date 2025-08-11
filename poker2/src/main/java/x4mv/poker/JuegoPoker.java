@@ -171,10 +171,12 @@ public class JuegoPoker {
     } else {
         System.out.println("La partida terminó en empate.");
     }
+
+    sc.close();
 }
 
-// Método para comparar manos según la fuerza de la jugada
-private static int compararManos(Carta[] mano1, Carta[] mano2) {
+    // Método para comparar manos según la fuerza de la jugada
+    private static int compararManos(Carta[] mano1, Carta[] mano2) {
     // Ranking de jugadas: mientras más alto, mejor
     List<String> ranking = Arrays.asList(
         "Carta Alta", "Par", "Par Doble", "Trío",
