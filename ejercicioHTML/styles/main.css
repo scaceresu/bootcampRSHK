@@ -1,0 +1,37 @@
+body{
+    background-color: grey;
+}
+
+img{
+    width: 40px;
+    height: 26px;
+}
+
+table {
+  border-collapse: collapse; /* Hace que los bordes se unan */
+  width: 100%;
+}
+
+tr:nth-child(odd) {
+  background-color: #f2f2f2;
+}
+
+/* Filas pares */
+tr:nth-child(even) {
+  background-color: #d9eaff;
+}
+
+th, td {
+  border: 1px solid black; /* Borde interno y externo */
+  padding: 8px;
+  text-align: center;
+}
+
+th {
+  background-color: #f2f2f2;
+}
+
+
+.container{
+    border: solid 2px red;
+}
