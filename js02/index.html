@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Calculadora simple</title>
+  <link rel="stylesheet" href="./styles/index.css">
+</head>
+<body>
+
+<section class="calculator">
+    <div></div>
+    <table>
+        <thead>
+            <tr>
+                <th id="history" colspan="4"></th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td id="res" colspan="4"></td>
+            </tr>
+            <tr>
+                <td data-action="+">+</td>
+                <td data-action="-">-</td>
+                <td data-action="*">*</td>
+                <td data-action="/">/</td>
+            </tr>
+            <tr>
+                <td data-action="1">1</td>
+                <td data-action="2">2</td>
+                <td data-action="3">3</td>
+                <td data-action="c">C</td>
+            </tr>
+            <tr>
+                <td data-action="4">4</td>
+                <td data-action="5">5</td>
+                <td data-action="6">6</td>
+                <td  data-action="="rowspan="2">=</td>
+            </tr>
+            <tr>
+                <td data-action="7">7</td>
+                <td data-action="8">8</td>
+                <td data-action="9">9</td>
+            </tr>
+            <tr>
+                <td data-action="0" colspan="3">0</td>  
+                <td data-action=".">.</td>
+            </tr>
+        </tbody>
+    </table>
+</section>
+
+<section class="answerConsoleContainer">
+    <button id="answerConsole" >Responder Preguntas</button> 
+    <div id="addedId"></div>
+</section>
+
+
+
+
+  <script src="./src/index.js"></script>
+</body>
+</html>
+
