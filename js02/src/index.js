@@ -5,6 +5,18 @@ collectHistory =""
 prevOperation = ""
 
 
+// dados 
+
+// Ejemplo de uso:
+const urls = [
+    '../static/images/dado1.png',
+    '../static/images/dado2.png',
+    '../static/images/dado3.png',
+    '../static/images/dado4.png',
+    '../static/images/dado5.png',
+    '../static/images/dado6.png'
+];
+
 // get the HTML elements when DOM LOADED
 
 document.addEventListener('DOMContentLoaded', e => {
@@ -82,6 +94,7 @@ document.addEventListener('DOMContentLoaded', e => {
 // Answer Questions 
 
 let answerElement = document.getElementById('answerConsole');
+let btnDices = document.getElementById('btnDices');
 
 // We wait until the DOM its fully loaded
 document.addEventListener('DOMContentLoaded', e => {
@@ -101,6 +114,11 @@ document.addEventListener('DOMContentLoaded', e => {
         texto = prompt("Ingresar el texto que tendra el elemento");
         addInner(id, texto);
         showRandomNumber();
+    })
+
+    btnDices.addEventListener('click', e => {
+        e.preventDefault();
+        showFiveDices(urls);
     })
 
 
@@ -139,5 +157,29 @@ function generateRandomNumber(min,max){
     max = Math.floor(max);
     return Math.floor(Math.random() * (max-min+1) + min)
 }
+
+
+function showFiveDices(urls) {
+    const elementDice = document.getElementById('dados');
+    elementDice.innerHTML = ''; // limpiar contenido previo
+
+    // Mezclar el array de URLs usando Fisher-Yates
+    for (let i = urls.length - 1; i > 0; i--) {
+        const j = Math.floor(Math.random() * (i + 1));
+        [urls[i], urls[j]] = [urls[j], urls[i]];
+    }
+
+    // Mostrar solo los primeros 5
+    for (let i = 0; i < 5; i++) {
+        const dice = document.createElement('img');
+        dice.src = urls[i] || ''; // si no hay suficiente URL, queda vacío
+        dice.alt = `Dado ${i + 1}`;
+        dice.style.width = '50px';
+        dice.style.margin = '5px';
+        elementDice.appendChild(dice);
+    }
+}
+
+
 
 
