@@ -1,0 +1,28 @@
+
+main{
+    padding: 200px;
+    text-align: center;
+}
+
+#empezarBtn{
+    margin:20px auto;
+    width: 200px;
+    height: 60px;
+}
+
+  table {
+    border-collapse: collapse; /* Une los bordes */
+    margin: 20px auto; /* Centrar */
+  }
+
+  th, td {
+    width: 100px;
+    height: 100px;
+    text-align: center;
+    font-size: 2em;
+    border: 3px solid black; /* Líneas visibles */
+  }
+
+  th:hover, td:hover{
+    border-color: red;
+  }
