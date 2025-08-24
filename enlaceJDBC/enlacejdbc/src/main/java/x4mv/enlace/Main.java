@@ -24,6 +24,9 @@ public class Main {
             Statement stmt = conn.createStatement();
             ResultSet rs = stmt.executeQuery("SELECT * FROM cliente Limit 3;");
 
+            //creando las consultas 
+
+
             while (rs.next()) {
                 System.out.println(rs.getString("nombre")); // ajusta según tu tabla
             }
