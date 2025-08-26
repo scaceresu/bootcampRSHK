@@ -1,11 +1,34 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Proveedor</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="../styles/form.css"/>
+  <title>Registrar Proveedor</title> 
 </head>
 <body>
-   <h1>Registrar Proveedor</h1> 
+    <div class="form-container">
+    <h1>Registrar Proveedor</h1>
+    <form action="/tabla-dinamica-1.0-SNAPSHOT/registroProveedor" method="post">
+        <label for="nombre">Nombre:</label>
+        <input type="text" id="nombre" name="nombre" required>
+        
+        <label for="ruc">RUC:</label>
+        <input type="text" id="ruc" name="ruc" required>
+        
+        <label for="pais_id">País:</label>
+        <select id="pais_id" name="pais_id" required>
+            <option value="">Seleccione...</option>
+            <!-- Dropdown con números del 1 al 17 -->
+            <script>
+                for (let i = 1; i <= 17; i++) {
+                    document.write(`<option value="${i}">${i}</option>`);
+                }
+                </script>
+        </select>
+        
+        <button type="submit">Guardar</button>
+    </form>
+</div>
 </body>
 </html>

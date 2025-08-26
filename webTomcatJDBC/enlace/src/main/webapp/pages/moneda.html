@@ -1,11 +1,18 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Moneda</title>
+    <link rel="stylesheet" href="../styles/form.css">
 </head>
 <body>
-   <h1>Registrar Moneda</h1> 
+    <div class="form-container">
+        <h1>Registrar Moneda</h1>
+        <form action="/tabla-dinamica-1.0-SNAPSHOT/registroMoneda" method="POST">
+            <input type="text" name="nombre_moneda" placeholder="Nombre de la Moneda" required>
+            <button type="submit">Guardar</button>
+        </form>
+    </div>
 </body>
 </html>
