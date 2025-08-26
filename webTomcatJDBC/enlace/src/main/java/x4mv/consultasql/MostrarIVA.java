@@ -8,10 +8,12 @@ import java.io.IOException;
 import java.io.PrintWriter;
 import java.sql.*;
 
-@WebServlet("/clientes-mas-facturas")
-public class TopClientes extends HttpServlet {
+@WebServlet("/mostrar-iva")
+public class MostrarIVA extends HttpServlet {
 
+    // invocando las consultas
     Consultas consulta = new Consultas();
+
 
     // Configuración de la base de datos
     private static final String URL = "jdbc:postgresql://localhost:5433/bootcamp_market";
@@ -34,19 +36,19 @@ public class TopClientes extends HttpServlet {
 
         try (Connection conn = DriverManager.getConnection(URL, USER, PASSWORD);
      Statement stmt = conn.createStatement();
-     ResultSet rs = stmt.executeQuery(consulta.query1)) {  // Cambia la consulta
+     ResultSet rs = stmt.executeQuery(consulta.query9)) {  // Cambia la consulta
 
     ResultSetMetaData meta = rs.getMetaData();
     int columnas = meta.getColumnCount();
 
     out.println("<html><head>");
     out.println("<link rel='stylesheet' type='text/css' href='" + request.getContextPath() + "/styles/index.css'>");
-    out.println("<title>Tabla de Clientes</title>");
+    out.println("<title>Tabla de Facturas</title>");
     out.println("</head><body>");
     
     // Contenedor principal para aplicar estilos
     out.println("<div class='container'>");
-    out.println("<h1>Tabla Dinámica de Clientes</h1>");
+    out.println("<h1>Tabla Dinámica de Factuas con IVA</h1>");
     out.println("<table>");
 
     // Cabecera de la tabla

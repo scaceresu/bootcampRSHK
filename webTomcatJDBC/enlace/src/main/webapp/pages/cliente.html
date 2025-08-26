@@ -1,16 +1,15 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Registrar Cliente</title>
     <link rel="stylesheet" href="../styles/form.css">
-    <title>Clientes</title>
 </head>
 <body>
-<form>
     <div class="form-container">
         <h2>Registrar Cliente</h2>
-        <form action="registroCliente" method="POST">
+        <form action="/tabla-dinamica-1.0-SNAPSHOT/registroCliente" method="POST">
             <input type="text" name="nombre" placeholder="Nombre" required>
             <input type="text" name="apellido" placeholder="Apellido" required>
             <input type="text" name="nro_cedula" placeholder="Nro. Cédula" required>
@@ -18,6 +17,5 @@
             <button type="submit">Guardar</button>
         </form>
     </div>
-</form>
 </body>
 </html>

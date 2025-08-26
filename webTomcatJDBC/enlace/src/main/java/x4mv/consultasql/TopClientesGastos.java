@@ -8,10 +8,12 @@ import java.io.IOException;
 import java.io.PrintWriter;
 import java.sql.*;
 
-@WebServlet("/clientes-mas-facturas")
-public class TopClientes extends HttpServlet {
+@WebServlet("/clientes-mas-gastos")
+public class TopClientesGastos extends HttpServlet {
 
+    // invocando las consultas
     Consultas consulta = new Consultas();
+
 
     // Configuración de la base de datos
     private static final String URL = "jdbc:postgresql://localhost:5433/bootcamp_market";
@@ -34,7 +36,7 @@ public class TopClientes extends HttpServlet {
 
         try (Connection conn = DriverManager.getConnection(URL, USER, PASSWORD);
      Statement stmt = conn.createStatement();
-     ResultSet rs = stmt.executeQuery(consulta.query1)) {  // Cambia la consulta
+     ResultSet rs = stmt.executeQuery(consulta.query2)) {  // Cambia la consulta
 
     ResultSetMetaData meta = rs.getMetaData();
     int columnas = meta.getColumnCount();
@@ -46,7 +48,7 @@ public class TopClientes extends HttpServlet {
     
     // Contenedor principal para aplicar estilos
     out.println("<div class='container'>");
-    out.println("<h1>Tabla Dinámica de Clientes</h1>");
+    out.println("<h1>Tabla Dinámica de Clientes con mas gastos</h1>");
     out.println("<table>");
 
     // Cabecera de la tabla
