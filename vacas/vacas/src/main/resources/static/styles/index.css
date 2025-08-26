@@ -1,0 +1,72 @@
+        /* Reset básico */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Arial', sans-serif;
+}
+
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background-color: #f5f5f5;
+}
+
+.container {
+    text-align: center;
+    background-color: #fff;
+    padding: 40px 30px;
+    border-radius: 12px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+    width: 90%;
+    max-width: 400px;
+}
+
+h1 {
+    margin-bottom: 30px;
+    font-weight: 400;
+    color: #333;
+}
+
+.btn {
+    display: block;
+    width: 100%;
+    padding: 12px 0;
+    margin: 12px 0;
+    border: none;
+    border-radius: 8px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.btn-consultar {
+    background-color: #4a90e2;
+    color: #fff;
+}
+
+.btn-consultar:hover {
+    background-color: #357abd;
+}
+
+.btn-crear {
+    background-color: #50c878;
+    color: #fff;
+}
+
+.btn-crear:hover {
+    background-color: #3da95a;
+}
+
+@media (max-width: 480px) {
+    .container {
+        padding: 30px 20px;
+    }
+
+    .btn {
+        font-size: 14px;
+        padding: 10px 0;
+    }
+}

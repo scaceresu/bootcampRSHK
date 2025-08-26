@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="es" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gestión de Usuarios</title>
+    <!-- Thymeleaf para la ruta del CSS -->
+    <link rel="stylesheet" th:href="@{/styles/index.css}">
+</head>
+<body>
+    <div class="container">
+        <h1>Gestión de Usuarios</h1>
+        
+        <!-- Mostrar mensajes flash -->
+        <div th:if="${success}" class="alert success">
+            <span th:text="${success}"></span>
+        </div>
+        
+        <div th:if="${error}" class="alert error">
+            <span th:text="${error}"></span>
+        </div>
+        
+        <!-- Enlaces con Thymeleaf -->
+        <a th:href="@{/usuario/consultar}" class="btn btn-consultar">Consultar Usuario</a>
+        <a th:href="@{/usuario/crear}" class="btn btn-crear">Crear Usuario</a>
+        
+        <!-- Opcional: Mostrar estadísticas dinámicas -->
+        <div th:if="${totalUsuarios != null}" class="stats">
+            <p>Total de usuarios registrados: <span th:text="${totalUsuarios}">0</span></p>
+        </div>
+    </div>
+</body>
+</html>

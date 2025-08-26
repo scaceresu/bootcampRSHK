@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="es" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Crear Usuario</title>
+    <link rel="stylesheet" th:href="@{/styles/form.css}">
+</head>
+<body>
+    <div class="form-container">
+        <h2>Crear Usuario</h2>
+        
+        <!-- Form CORRECTO con th:object -->
+        <form th:action="@{/usuario/crear}" th:object="${usuario}" method="post">
+
+            <label for="nombre">Nombre:</label>
+            <input type="text" id="nombre" th:field="*{nombre}" required>
+
+            <label for="apellido">Apellido:</label>
+            <input type="text" id="apellido" th:field="*{apellido}" required>
+
+            <label for="nroCedula">Nro. de Cédula:</label>
+            <input type="text" id="nroCedula" th:field="*{nroCedula}" required>
+
+            <label for="correo">Correo:</label>
+            <input type="email" id="correo" th:field="*{correo}" required>
+
+            <label for="id_rol">Rol:</label>
+            <input type="text" th:field="*{id_rol}" />
+
+
+            <label for="fechaIngreso">Fecha de Ingreso:</label>
+            <input type="date" id="fechaIngreso" th:field="*{fechaIngreso}" required>
+
+            <label for="telefono">Teléfono:</label>
+            <input type="text" id="telefono" th:field="*{telefono}" required>
+
+            <label for="contrasena">Contraseña:</label>
+            <input type="password" id="contrasena" th:field="*{contrasena}" required>
+
+            <label for="fechaNacimiento">Fecha de Nacimiento:</label>
+            <input type="date" id="fechaNacimiento" th:field="*{fechaNacimiento}" required>
+
+            <button type="submit" class="full-width">Crear Usuario</button>
+        </form>
+
+    </div>
+</body>
+</html>
