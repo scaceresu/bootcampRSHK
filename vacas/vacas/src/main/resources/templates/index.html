@@ -21,18 +21,51 @@
         <!-- Botones de acciones -->
         <a th:href="@{/usuario/crear}" class="btn btn-crear">Crear Usuario</a>
         <a th:href="@{/usuario/consultar}" class="btn btn-consultar">Consultar Usuario</a>
+        <button id="btnGrupo" class="btn btn-consultar">Consultar por grupo</button>
         <button id="btnEditar" class="btn btn-editar">Editar Usuario</button>
         <a th:href="@{/usuario/eliminar}" class="btn btn-eliminar">Eliminar Usuario</a>
+
+        <!-- Modal para consultar por grupo -->
+        <div id="modalGrupo" class="modal">
+            <div class="modal-content">
+                <span class="close" id="closeModalGrupo">&times;</span>
+                <h2>Seleccione el grupo a consultar</h2>
+                
+                <!-- Dropdown dinámico con Thymeleaf -->
+                <select id="grupoNombre" name="grupoNombre">
+                    <option value="" disabled selected>-- Seleccione un grupo --</option>
+                    <option th:each="equipo : ${equipos}"
+                            th:value="${equipo.id}" 
+                            th:text="${equipo.nombre}">
+                    </option>
+                </select>
+                
+                <button class="btn btn-submit" id="submitGrupo">Consultar</button>
+            </div>
+        </div>
+
 
         <!-- Modal para editar usuario -->
         <div id="modalEditar" class="modal">
             <div class="modal-content">
-                <span class="close" id="closeModal">&times;</span>
-                <h2>Ingrese el ID del usuario a editar</h2>
-                <input type="number" id="usuarioId" placeholder="ID del usuario" min="1">
+                <span class="close" id="closeModalEditar">&times;</span>
+                <h2>Seleccione el usuario a editar</h2>
+
+                <!-- Dropdown con nombres y apellidos -->
+                <select id="usuarioId">
+                    <option value="" disabled selected>Seleccione un usuario</option>
+                    <option th:each="usuario : ${usuarios}" 
+                            th:value="${usuario.id}" 
+                            th:text="${usuario.nombre} + ' ' + ${usuario.apellido}">
+                        Usuario
+                    </option>
+                </select>
+
                 <button class="btn btn-submit" id="submitId">Editar</button>
             </div>
         </div>
+
+
 
     </div>
 

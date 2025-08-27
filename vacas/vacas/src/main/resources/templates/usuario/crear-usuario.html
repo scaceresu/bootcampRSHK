@@ -27,17 +27,54 @@
             <label for="correo">Correo:</label>
             <input type="email" id="correo" th:field="*{correo}" required>
 
-            <label for="idRol">Rol:</label>
-            <input type="text" th:field="*{idRol}" />
-            <div th:if="${#fields.hasErrors('nroCedula')}" th:errors="*{nroCedula}" class="error"></div>
+           <label for="idRol">Rol:</label>
+            <select th:field="*{idRol}">
+                <option value="" disabled selected>-- Seleccione un rol --</option>
+                <option th:each="rol : ${roles}" 
+                        th:value="${rol.id}" 
+                        th:text="${rol.nombre}">
+                </option>
+            </select>
+
+            <!-- Errores de validación -->
+            <div th:if="${#fields.hasErrors('idRol')}" 
+                th:errors="*{idRol}" 
+                class="error">
+            </div>
+
 
             <label for="idEquipo">Equipo:</label>
-            <input type="text" th:field="*{idEquipo}" />
-            <div th:if="${#fields.hasErrors('idEquipo')}" th:errors="*{idEquipo}" class="error"></div>
+            <select th:field="*{idEquipo}">
+                <option value="" disabled selected>-- Seleccione un equipo --</option>
+                <option th:each="equipo : ${equipos}" 
+                        th:value="${equipo.id}" 
+                        th:text="${equipo.nombre}">
+                </option>
+            </select>
+
+            <!-- Errores de validación -->
+            <div th:if="${#fields.hasErrors('idEquipo')}" 
+                th:errors="*{idEquipo}" 
+                class="error">
+            </div>
+
 
             <label for="idCargo">Cargo:</label>
-            <input type="text" th:field="*{idCargo}" />
-            <div th:if="${#fields.hasErrors('idCargo')}" th:errors="*{idCArgo}" class="error"></div>
+            <select th:field="*{idCargo}">
+                <option value="" disabled selected>-- Seleccione un cargo --</option>
+                <option th:each="cargo : ${cargos}" 
+                        th:value="${cargo.id}" 
+                        th:text="${cargo.nombre}">
+                </option>
+            </select>
+
+            <!-- Errores de validación -->
+            <div th:if="${#fields.hasErrors('idCargo')}" 
+                th:errors="*{idCargo}" 
+                class="error">
+            </div>
+
+
 
             <label for="fechaIngreso">Fecha de Ingreso:</label>
             <input type="date" id="fechaIngreso" th:field="*{fechaIngreso}" required>

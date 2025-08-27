@@ -7,10 +7,15 @@ import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
+
+import x4mv.vacas.vacas.models.CargoModel;
+import x4mv.vacas.vacas.models.EquipoModel;
+import x4mv.vacas.vacas.models.RolModel;
 import x4mv.vacas.vacas.models.UsuarioModel;
 import x4mv.vacas.vacas.services.UsuarioService;
 
 import jakarta.validation.Valid;
+
 
 
 
@@ -28,6 +33,9 @@ public class UsuarioController {
     @GetMapping("/crear")
     public String mostrarFormularioCreacion(Model model) {
         model.addAttribute("usuario", new UsuarioModel());
+        model.addAttribute("equipos", usuarioService.listarEquipos());
+        model.addAttribute("cargos", usuarioService.listarCargos());
+        model.addAttribute("roles", usuarioService.listarRoles());
         return "usuario/crear-usuario"; // Sin .html
     }
     @PostMapping("/crear")
@@ -67,17 +75,52 @@ public class UsuarioController {
     public String consultarUsuario(Model model) {
 
         Iterable<UsuarioModel> usuarios = usuarioService.mostrarUsuarios();
+        Iterable<RolModel> roles = usuarioService.listarRoles();
+        Iterable<CargoModel> cargos = usuarioService.listarCargos();
+        Iterable<EquipoModel> equipos = usuarioService.listarEquipos();
+        
         // pasamos los datos para que thymeleaf los pueda usar
         model.addAttribute("usuarios", usuarios);
+        model.addAttribute("roles", roles);
+        model.addAttribute("cargos", cargos);
+        model.addAttribute("equipos", equipos);
         return "usuario/consultar-usuario"; // Sin .html
     }
+
+
+
+    @GetMapping("/consultar-por-equipo/{idEquipo}")
+    public String consultarPorEquipo(@PathVariable Long idEquipo, Model model) {
+        Iterable<UsuarioModel> usuarios = usuarioService.mostrarPorEquipo(idEquipo);
+        Iterable<RolModel> roles = usuarioService.listarRoles();
+        Iterable<CargoModel> cargos = usuarioService.listarCargos();
+        Iterable<EquipoModel> equipos = usuarioService.listarEquipos();
+        
+        model.addAttribute("usuarios", usuarios);
+         model.addAttribute("roles", roles);
+        model.addAttribute("cargos", cargos);
+        model.addAttribute("equipos", equipos);
+        return "/usuario/consultar-por-grupo";
+    }
+    
+
+
 
 
 
     @GetMapping("/editar/{id}")
     public String mostrarFormularioEdicion(@PathVariable Long id, Model model) {
         Optional<UsuarioModel> usuario = usuarioService.encontrarPorID(id);
+        Iterable<RolModel> roles = usuarioService.listarRoles();
+        Iterable<CargoModel> cargos = usuarioService.listarCargos();
+        Iterable<EquipoModel> equipos = usuarioService.listarEquipos();
+        
         model.addAttribute("usuario", usuario);
+         model.addAttribute("roles", roles);
+        model.addAttribute("cargos", cargos);
+        model.addAttribute("equipos", equipos);
+
+
         return "/usuario/editar-usuario"; 
     }
 
@@ -94,7 +137,10 @@ public class UsuarioController {
 
 
     @GetMapping("/eliminar")
-     public String mostrarFormularioEliminacion() {
+     public String mostrarFormularioEliminacion(Model model){
+
+        Iterable<UsuarioModel> usuarios = usuarioService.mostrarUsuarios();
+        model.addAttribute("usuarios", usuarios);
         return "/usuario/eliminar-usuario"; 
     }
 

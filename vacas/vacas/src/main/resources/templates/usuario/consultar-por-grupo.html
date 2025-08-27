@@ -7,7 +7,7 @@
 </head>
 <body>
 <div class="table-container">
-    <h2>Lista de Usuarios</h2>
+    <h2>Lista de Usuarios por grupo</h2>
     <table>
         <thead>
             <tr>
@@ -36,10 +36,10 @@
                 <td th:each="c : ${cargos}" th:if="${c.id == usuario.idCargo}" th:text="${c.nombre}"></td>
                 <td th:each="r : ${roles}" th:if="${r.id == usuario.idRol}" th:text="${r.nombre}"></td>
                 <td th:each="e : ${equipos}" th:if="${e.id == usuario.idEquipo}" th:text="${e.nombre}"></td>
-
             </tr>
         </tbody>
     </table>
 </div>
 </body>
+
 </html>

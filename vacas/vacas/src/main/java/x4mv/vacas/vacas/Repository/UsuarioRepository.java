@@ -16,5 +16,6 @@ public interface UsuarioRepository extends CrudRepository <UsuarioModel, Long> {
     List<UsuarioModel> findByNombre(String nombre);
     boolean existsByNroCedula(int nro_cedula);
     Optional<UsuarioModel> findByNroCedula(int nroCedula);
+    Iterable<UsuarioModel> findByIdEquipo(Long idEquipo);
     
 }

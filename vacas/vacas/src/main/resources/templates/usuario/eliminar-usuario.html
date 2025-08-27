@@ -10,7 +10,15 @@
     <div class="container">
         <h1>Eliminar Usuario</h1>
         <form th:action="@{/usuario/eliminar}" method="post">
-            <input type="number" name="id_usuario" placeholder="Ingrese ID de usuario" required>
+            <select name="id_usuario" required>
+                <option value="" disabled selected>Seleccione un usuario</option>
+                <option th:each="usuario : ${usuarios}" 
+                        th:value="${usuario.id}" 
+                        th:text="${usuario.nombre} + ' ' + ${usuario.apellido}">
+                    Usuario
+                </option>
+            </select>
+
             <button type="submit">Eliminar</button>
         </form>
     </div>

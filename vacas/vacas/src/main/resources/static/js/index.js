@@ -1,32 +1,55 @@
-// Elementos del DOM
-const modal = document.getElementById('modalEditar');
-const btn = document.getElementById('btnEditar');
-const span = document.getElementById('closeModal');
-const submitBtn = document.getElementById('submitId');
-const input = document.getElementById('usuarioId');
+// ---------- Modal Editar ----------
+const modalEditar = document.getElementById('modalEditar');
+const btnEditar = document.getElementById('btnEditar');
+const closeEditar = document.getElementById('closeModalEditar');
+const submitEditar = document.getElementById('submitId');
+const inputEditar = document.getElementById('usuarioId');
 
-// Abrir modal al hacer click en "Editar Usuario"
-btn.onclick = () => modal.style.display = 'block';
-
-// Cerrar modal al hacer click en X
-span.onclick = () => modal.style.display = 'none';
-
-// Cerrar modal si se hace click fuera del contenido
-window.onclick = (event) => {
-    if (event.target == modal) modal.style.display = 'none';
-}
-
-// Redirigir a la URL dinámica al presionar "Editar"
-submitBtn.onclick = () => {
-    const id = input.value;
-    if(id) {
+// Abrir modal editar
+btnEditar.onclick = () => modalEditar.style.display = 'block';
+// Cerrar modal editar
+closeEditar.onclick = () => modalEditar.style.display = 'none';
+// Cerrar modal al hacer click afuera
+window.onclick = (e) => {
+    if (e.target === modalEditar) modalEditar.style.display = 'none';
+    if (e.target === modalGrupo) modalGrupo.style.display = 'none';
+};
+// Redirigir al editar
+submitEditar.onclick = () => {
+    const id = inputEditar.value;
+    if (id) {
         window.location.href = `/usuario/editar/${id}`;
     } else {
         alert("Por favor ingrese un ID válido");
     }
-}
+};
+// Enviar con Enter
+inputEditar.addEventListener("keydown", (e) => {
+    if (e.key === "Enter") submitEditar.click();
+});
 
-// Permitir enviar con Enter
-input.addEventListener("keydown", function(e) {
-    if(e.key === "Enter") submitBtn.click();
+
+// ---------- Modal Consultar por Grupo ----------
+const modalGrupo = document.getElementById('modalGrupo');
+const btnGrupo = document.getElementById('btnGrupo');
+const closeGrupo = document.getElementById('closeModalGrupo');
+const submitGrupo = document.getElementById('submitGrupo');
+const inputGrupo = document.getElementById('grupoNombre');
+
+// Abrir modal grupo
+btnGrupo.onclick = () => modalGrupo.style.display = 'block';
+// Cerrar modal grupo
+closeGrupo.onclick = () => modalGrupo.style.display = 'none';
+// Redirigir al consultar grupo
+submitGrupo.onclick = () => {
+    const grupo = inputGrupo.value.trim();
+    if (grupo) {
+        window.location.href = `/usuario/consultar-por-equipo/${grupo}`;
+    } else {
+        alert("Por favor ingrese un grupo válido");
+    }
+};
+// Enviar con Enter
+inputGrupo.addEventListener("keydown", (e) => {
+    if (e.key === "Enter") submitGrupo.click();
 });

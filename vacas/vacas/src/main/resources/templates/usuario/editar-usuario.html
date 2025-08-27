@@ -28,25 +28,62 @@
         <input type="email" id="correo" th:field="*{correo}" required/>
         
         <label for="idRol">Rol:</label>
-        <input type="text" id="idRol" th:field="*{idRol}" required/>
+            <select th:field="*{idRol}">
+                <option value="" disabled selected>-- Seleccione un rol --</option>
+                <option th:each="rol : ${roles}" 
+                        th:value="${rol.id}" 
+                        th:text="${rol.nombre}">
+                </option>
+            </select>
+
+            <!-- Errores de validación -->
+            <div th:if="${#fields.hasErrors('idRol')}" 
+                th:errors="*{idRol}" 
+                class="error">
+            </div>
         
         <label for="idEquipo">Equipo:</label>
-        <input type="text" id="idEquipo" th:field="*{idEquipo}" required/>
-        
-        <label for="idCargo">Cargo:</label>
-        <input type="text" id="idCargo" th:field="*{idCargo}" required/>
+            <select th:field="*{idEquipo}">
+                <option value="" disabled selected>-- Seleccione un equipo --</option>
+                <option th:each="equipo : ${equipos}" 
+                        th:value="${equipo.id}" 
+                        th:text="${equipo.nombre}">
+                </option>
+            </select>
+
+            <!-- Errores de validación -->
+            <div th:if="${#fields.hasErrors('idEquipo')}" 
+                th:errors="*{idEquipo}" 
+                class="error">
+            </div>
+
+
+            <label for="idCargo">Cargo:</label>
+            <select th:field="*{idCargo}">
+                <option value="" disabled selected>-- Seleccione un cargo --</option>
+                <option th:each="cargo : ${cargos}" 
+                        th:value="${cargo.id}" 
+                        th:text="${cargo.nombre}">
+                </option>
+            </select>
+
+            <!-- Errores de validación -->
+            <div th:if="${#fields.hasErrors('idCargo')}" 
+                th:errors="*{idCargo}" 
+                class="error">
+            </div>
         
        <label for="fechaIngreso">Fecha de Ingreso:</label>
-            <input type="date" id="fechaIngreso" th:field="*{fechaIngreso}" required>
+        <input type="date" id="fechaIngreso" th:field="*{fechaIngreso}" required>
 
-            <label for="telefono">Teléfono:</label>
-            <input type="text" id="telefono" th:field="*{telefono}" required>
+        <label for="telefono">Teléfono:</label>
+        <input type="text" id="telefono" th:field="*{telefono}" required>
 
-            <label for="contrasena">Contraseña:</label>
-            <input type="password" id="contrasena" th:field="*{contrasena}" required>
+        <label for="contrasena">Contraseña:</label>
+        <input type="password" id="contrasena" th:field="*{contrasena}" required>
 
-            <label for="fechaNacimiento">Fecha de Nacimiento:</label>
-            <input type="date" id="fechaNacimiento" th:field="*{fechaNacimiento}" required>
+        <label for="fechaNacimiento">Fecha de Nacimiento:</label>
+        <input type="date" id="fechaNacimiento" th:field="*{fechaNacimiento}" required>
         <!-- Botón ocupa toda la fila -->
         <button type="submit" class="full-width">Guardar Cambios</button>
     </form>
