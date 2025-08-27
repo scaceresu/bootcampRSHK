@@ -1,11 +1,18 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <link rel="stylesheet" th:href="@{/styles/form.css}">
+    <title>Eliminar Usuario</title>
 </head>
 <body>
-    <h1>Eliminando</h1>
+    <div class="container">
+        <h1>Eliminar Usuario</h1>
+        <form th:action="@{/usuario/eliminar}" method="post">
+            <input type="number" name="id_usuario" placeholder="Ingrese ID de usuario" required>
+            <button type="submit">Eliminar</button>
+        </form>
+    </div>
 </body>
 </html>

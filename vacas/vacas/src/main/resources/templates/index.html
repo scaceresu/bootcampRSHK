@@ -4,7 +4,6 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Gestión de Usuarios</title>
-    <!-- Thymeleaf para la ruta del CSS -->
     <link rel="stylesheet" th:href="@{/styles/index.css}">
 </head>
 <body>
@@ -15,21 +14,29 @@
         <div th:if="${success}" class="alert success">
             <span th:text="${success}"></span>
         </div>
-        
         <div th:if="${error}" class="alert error">
             <span th:text="${error}"></span>
         </div>
         
-        <!-- Enlaces con Thymeleaf -->
+        <!-- Botones de acciones -->
         <a th:href="@{/usuario/crear}" class="btn btn-crear">Crear Usuario</a>
         <a th:href="@{/usuario/consultar}" class="btn btn-consultar">Consultar Usuario</a>
-        <a th:href="@{/usuario/editar}" class="btn btn-editar">Editar Usuario</a>
+        <button id="btnEditar" class="btn btn-editar">Editar Usuario</button>
         <a th:href="@{/usuario/eliminar}" class="btn btn-eliminar">Eliminar Usuario</a>
-        
-        <!-- Opcional: Mostrar estadísticas dinámicas -->
-        <div th:if="${totalUsuarios != null}" class="stats">
-            <p>Total de usuarios registrados: <span th:text="${totalUsuarios}">0</span></p>
+
+        <!-- Modal para editar usuario -->
+        <div id="modalEditar" class="modal">
+            <div class="modal-content">
+                <span class="close" id="closeModal">&times;</span>
+                <h2>Ingrese el ID del usuario a editar</h2>
+                <input type="number" id="usuarioId" placeholder="ID del usuario" min="1">
+                <button class="btn btn-submit" id="submitId">Editar</button>
+            </div>
         </div>
+
     </div>
+
+    <!-- JS externo -->
+    <script th:src="@{/js/index.js}"></script>
 </body>
 </html>

@@ -1,11 +1,64 @@
 <!DOCTYPE html>
-<html lang="en">
+<html xmlns:th="http://www.thymeleaf.org" lang="es">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Editar Usuario</title>
+    <link rel="stylesheet" th:href="@{/styles/form.css}">
 </head>
 <body>
-    <h1>EDITANDO</h1>
+
+<div class="form-container">
+
+    <h2>Editar Usuario</h2>
+
+    <!-- Formulario de edición -->
+    <form th:action="@{/usuario/editar}" th:object="${usuario}" method="post">
+        <input type="hidden" th:field="*{id}" />
+
+        <label for="nombre">Nombre:</label>
+        <input type="text" id="nombre" th:field="*{nombre}" required/>
+
+        <label for="apellido">Apellido:</label>
+        <input type="text" id="apellido" th:field="*{apellido}" required/>
+
+        <label for="nroCedula">Nro. de Cedula:</label>
+        <input type="text" id="nroCedula" th:field="*{nroCedula}" required/>
+        
+        <label for="correo">Correo:</label>
+        <input type="email" id="correo" th:field="*{correo}" required/>
+        
+        <label for="idRol">Rol:</label>
+        <input type="text" id="idRol" th:field="*{idRol}" required/>
+        
+        <label for="idEquipo">Equipo:</label>
+        <input type="text" id="idEquipo" th:field="*{idEquipo}" required/>
+        
+        <label for="idCargo">Cargo:</label>
+        <input type="text" id="idCargo" th:field="*{idCargo}" required/>
+        
+       <label for="fechaIngreso">Fecha de Ingreso:</label>
+            <input type="date" id="fechaIngreso" th:field="*{fechaIngreso}" required>
+
+            <label for="telefono">Teléfono:</label>
+            <input type="text" id="telefono" th:field="*{telefono}" required>
+
+            <label for="contrasena">Contraseña:</label>
+            <input type="password" id="contrasena" th:field="*{contrasena}" required>
+
+            <label for="fechaNacimiento">Fecha de Nacimiento:</label>
+            <input type="date" id="fechaNacimiento" th:field="*{fechaNacimiento}" required>
+        <!-- Botón ocupa toda la fila -->
+        <button type="submit" class="full-width">Guardar Cambios</button>
+    </form>
+
+    <br>
+
+    <!-- Botón volver estilizado -->
+    <div style="text-align:center;">
+        <a th:href="@{/}" class="btn-volver">Volver al inicio</a>
+    </div>
+
+</div>
+
 </body>
 </html>
