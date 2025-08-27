@@ -21,8 +21,10 @@
         </div>
         
         <!-- Enlaces con Thymeleaf -->
-        <a th:href="@{/usuario/consultar}" class="btn btn-consultar">Consultar Usuario</a>
         <a th:href="@{/usuario/crear}" class="btn btn-crear">Crear Usuario</a>
+        <a th:href="@{/usuario/consultar}" class="btn btn-consultar">Consultar Usuario</a>
+        <a th:href="@{/usuario/editar}" class="btn btn-editar">Editar Usuario</a>
+        <a th:href="@{/usuario/eliminar}" class="btn btn-eliminar">Eliminar Usuario</a>
         
         <!-- Opcional: Mostrar estadísticas dinámicas -->
         <div th:if="${totalUsuarios != null}" class="stats">

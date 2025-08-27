@@ -1,11 +1,38 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Consultar Cliente</title>
+    <title>Usuarios</title>
+    <link rel="stylesheet" th:href="@{/styles/form.css}">
 </head>
 <body>
-    <h1>Consultando cliente</h1>
+<div class="table-container">
+    <h2>Lista de Usuarios</h2>
+    <table>
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Nombre</th>
+                <th>Apellido</th>
+                <th>Cédula</th>
+                <th>Correo</th>
+                <th>Fecha Ingreso</th>
+                <th>Antigüedad</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr th:each="usuario : ${usuarios}">
+                <td th:text="${usuario.id}"></td>
+                <td th:text="${usuario.nombre}"></td>
+                <td th:text="${usuario.apellido}"></td>
+                <td th:text="${usuario.nroCedula}"></td>
+                <td th:text="${usuario.correo}"></td>
+                <td th:text="${#dates.format(usuario.fechaIngreso, 'yyyy-MM-dd')}"></td>
+                <td th:text="${usuario.antiguedad}"></td>
+            </tr>
+        </tbody>
+    </table>
+</div>
 </body>
+
 </html>

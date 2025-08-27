@@ -23,9 +23,11 @@ public class UsuarioService {
 
         return usuarioRepository.save(usuario);
 
-    }
+    } 
 
-    public List<UsuarioModel> obtenerTodosLosUsuarios(){
+    public Iterable<UsuarioModel> mostrarUsuarios(){
+        System.out.println("MOSTRANDO ==> USER");
+
         return usuarioRepository.findAll();
     }
 }

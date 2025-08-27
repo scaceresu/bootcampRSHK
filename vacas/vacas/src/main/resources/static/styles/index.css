@@ -60,6 +60,28 @@ h1 {
     background-color: #3da95a;
 }
 
+/* Botón Editar */
+.btn-editar {
+    background-color: #f5a623; /* Naranja sobrio */
+    color: #fff;
+}
+
+.btn-editar:hover {
+    background-color: #d4881f; /* Naranja más oscuro al pasar el cursor */
+}
+
+/* Botón Eliminar */
+.btn-eliminar {
+    background-color: #e94b35; /* Rojo sobrio */
+    color: #fff;
+}
+
+.btn-eliminar:hover {
+    background-color: #c0392b; /* Rojo más oscuro al pasar el cursor */
+}
+
+
+
 @media (max-width: 480px) {
     .container {
         padding: 30px 20px;

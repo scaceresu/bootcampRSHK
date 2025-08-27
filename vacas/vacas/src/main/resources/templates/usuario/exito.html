@@ -1,11 +1,16 @@
 <!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-</head>
+<html lang="es" xmlns:th="http://www.thymeleaf.org">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Éxito</title>
+        <link rel="stylesheet" th:href="@{/styles/exito.css}">
+    </head>
 <body>
-    <h1>Creacion exitosa</h1>
+    <div class="container">
+        <h1>¡Creación exitosa!</h1>
+        <p>El registro se ha guardado correctamente.</p>
+        <a th:href="@{/}" class="button">Volver al inicio</a>
+    </div>
 </body>
 </html>
