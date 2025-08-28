@@ -33,19 +33,22 @@ public class UsuarioService {
     public UsuarioModel guardarUsuario(UsuarioModel usuario) {
     System.out.println("POST RECIBIDO");
 
-    // Buscar si existe otro usuario con el mismo nroCedula
-    Optional<UsuarioModel> existente = usuarioRepository.findByNroCedula(usuario.getNroCedula());
-    
-    if (existente.isPresent() && !existente.get().getId().equals(usuario.getId())) {
-        // Si existe otro usuario con ese CI y no es el mismo que estamos editando
-        throw new RuntimeException(
-            "El CI ya está registrado: " + usuario.getNombre() + " " + usuario.getApellido() +
-            " en la fecha: " + usuario.getFechaIngreso()
-        );
-    }
+        // Buscar si existe otro usuario con el mismo nroCedula
+        Optional<UsuarioModel> existente = usuarioRepository.findByNroCedula(usuario.getNroCedula());
+        
+        if (existente.isPresent() && !existente.get().getId().equals(usuario.getId())) {
+            UsuarioModel repetido = existente.get(); // el que ya existe en BD
+            
+            throw new RuntimeException(
+                "El CI ya está registrado para: " + repetido.getNombre() + " " + repetido.getApellido() +
+                " (Ingreso: " + repetido.getFechaIngreso() + ")"
+            );
+        }
 
-    return usuarioRepository.save(usuario);
-}
+
+
+        return usuarioRepository.save(usuario);
+    }
 
 
     public Iterable<UsuarioModel> mostrarUsuarios(){

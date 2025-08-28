@@ -22,11 +22,11 @@
         <input type="text" id="apellido" th:field="*{apellido}" required/>
 
         <label for="nroCedula">Nro. de Cedula:</label>
-        <input type="text" id="nroCedula" th:field="*{nroCedula}" required/>
+        <input type="text" id="nroCedula" th:field="*{nroCedula}" disabled />
         
         <label for="correo">Correo:</label>
         <input type="email" id="correo" th:field="*{correo}" required/>
-        
+
         <label for="idRol">Rol:</label>
             <select th:field="*{idRol}">
                 <option value="" disabled selected>-- Seleccione un rol --</option>
@@ -91,10 +91,7 @@
     <br>
 
     <!-- Botón volver estilizado -->
-    <div style="text-align:center;">
-        <a th:href="@{/}" class="btn-volver">Volver al inicio</a>
-    </div>
-
+      <a th:href="@{/}" class="button">Volver al Inicio</a>
 </div>
 
 </body>

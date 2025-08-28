@@ -38,7 +38,18 @@
                 <td th:each="e : ${equipos}" th:if="${e.id == usuario.idEquipo}" th:text="${e.nombre}"></td>
 
             </tr>
+           
         </tbody>
+
+        <tfoot>
+            <tr>
+                <td colspan="10" style="text-align: center;">
+                    <a th:href="@{/}" class="button">Volver al Inicio</a>
+                </td>
+            </tr>
+        </tfoot>
+
+
     </table>
 </div>
 </body>

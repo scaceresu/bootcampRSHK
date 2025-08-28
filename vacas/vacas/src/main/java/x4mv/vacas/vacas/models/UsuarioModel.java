@@ -1,11 +1,10 @@
 package x4mv.vacas.vacas.models;
 
 import java.time.LocalDate;
+import java.time.Period;
 import java.time.ZoneId;
-import java.time.temporal.ChronoUnit;
 import java.util.Date;
 import org.postgresql.util.PGInterval;
-import org.springframework.cglib.core.Local;
 import org.springframework.format.annotation.DateTimeFormat;
 
 import jakarta.persistence.Column;
@@ -178,25 +177,33 @@ public class UsuarioModel {
     }
 
 
-    private void calcularAntiguedad(Date fechaIngreso){
-
+    private void calcularAntiguedad(Date fechaIngreso) {
         PGInterval interval = new PGInterval();
-        
-        if (fechaIngreso == null){
+
+        if (fechaIngreso == null) {
+            interval.setYears(0);
+            interval.setMonths(0);
             interval.setDays(0);
             setAntiguedad(interval.toString());
+            return;
         }
 
+        // Convertir la fecha a LocalDate
         LocalDate fechaIngresoLocal = fechaIngreso.toInstant()
-        .atZone(ZoneId.systemDefault())
-        .toLocalDate();
-
+                .atZone(ZoneId.systemDefault())
+                .toLocalDate();
 
         LocalDate hoy = LocalDate.now();
 
-        int dias = (int) ChronoUnit.DAYS.between(fechaIngresoLocal, hoy);
-        interval.setDays(dias);
+        // Usamos Period para obtener años, meses y días
+        Period periodo = Period.between(fechaIngresoLocal, hoy);
+
+        interval.setYears(periodo.getYears());
+        interval.setMonths(periodo.getMonths());
+        interval.setDays(periodo.getDays());
+
         setAntiguedad(interval.toString());
     }
+
 }
 

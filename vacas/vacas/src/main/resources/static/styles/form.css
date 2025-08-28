@@ -59,33 +59,39 @@ input:focus, select:focus {
     grid-column: 1 / 3;
 }
 
-button {
+/* Botón base */
+button{
     padding: 12px;
-    background-color: #007BFF;
-    color: #fff;
     border: none;
     border-radius: 7px;
     cursor: pointer;
     font-size: 1rem;
     transition: background-color 0.2s;
     grid-column: 1 / 3;
+    color: #fff;
+}
+
+/* Botón principal (Crear Usuario) */
+button {
+    background-color: #007BFF;
 }
 
 button:hover {
     background-color: #0056b3;
 }
 
- .btn-volver {
-            background-color: #4a90e2;
-            color: #fff;
-            padding: 12px 20px;
-            border: none;
-            border-radius: 8px;
-            cursor: pointer;
-            font-size: 1rem;
-            text-decoration: none;
-            transition: background-color 0.3s ease;
-        }
+
+.btn-volver {
+        background-color: #4a90e2;
+        color: #fff;
+        padding: 12px 20px;
+        border: none;
+        border-radius: 8px;
+        cursor: pointer;
+        font-size: 1rem;
+        text-decoration: none;
+        transition: background-color 0.3s ease;
+    }
 
 .btn-volver:hover {
     background-color: #357abd;
@@ -148,3 +154,24 @@ tr:hover {
         padding: 8px 10px;
     }
 }
+
+/* btn de volver al inicio */
+/* btn de volver al inicio */
+a.button {
+    display: block; /* lo hace ocupar todo el ancho disponible */
+    text-align: center; /* centra el texto */
+    text-decoration: none;
+    background-color: #2e7d32;
+    color: #fff;
+    padding: 12px; /* igual que el button */
+    border-radius: 7px; /* mismo borde que el button */
+    transition: background-color 0.3s ease;
+    font-size: 1rem;
+    font-weight: bold;
+    grid-column: 1 / 3; /* ocupa las 2 columnas como .full-width */
+}
+
+a.button:hover {
+    background-color: #256428;
+}
+

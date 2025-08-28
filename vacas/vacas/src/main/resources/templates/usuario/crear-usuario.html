@@ -23,11 +23,10 @@
             <input type="text" id="nroCedula" th:field="*{nroCedula}" required>
             <div th:if="${#fields.hasErrors('nroCedula')}" th:errors="*{nroCedula}" class="error"></div>
 
-
             <label for="correo">Correo:</label>
             <input type="email" id="correo" th:field="*{correo}" required>
 
-           <label for="idRol">Rol:</label>
+            <label for="idRol">Rol:</label>
             <select th:field="*{idRol}">
                 <option value="" disabled selected>-- Seleccione un rol --</option>
                 <option th:each="rol : ${roles}" 
@@ -35,13 +34,7 @@
                         th:text="${rol.nombre}">
                 </option>
             </select>
-
-            <!-- Errores de validación -->
-            <div th:if="${#fields.hasErrors('idRol')}" 
-                th:errors="*{idRol}" 
-                class="error">
-            </div>
-
+            <div th:if="${#fields.hasErrors('idRol')}" th:errors="*{idRol}" class="error"></div>
 
             <label for="idEquipo">Equipo:</label>
             <select th:field="*{idEquipo}">
@@ -51,13 +44,7 @@
                         th:text="${equipo.nombre}">
                 </option>
             </select>
-
-            <!-- Errores de validación -->
-            <div th:if="${#fields.hasErrors('idEquipo')}" 
-                th:errors="*{idEquipo}" 
-                class="error">
-            </div>
-
+            <div th:if="${#fields.hasErrors('idEquipo')}" th:errors="*{idEquipo}" class="error"></div>
 
             <label for="idCargo">Cargo:</label>
             <select th:field="*{idCargo}">
@@ -67,14 +54,7 @@
                         th:text="${cargo.nombre}">
                 </option>
             </select>
-
-            <!-- Errores de validación -->
-            <div th:if="${#fields.hasErrors('idCargo')}" 
-                th:errors="*{idCargo}" 
-                class="error">
-            </div>
-
-
+            <div th:if="${#fields.hasErrors('idCargo')}" th:errors="*{idCargo}" class="error"></div>
 
             <label for="fechaIngreso">Fecha de Ingreso:</label>
             <input type="date" id="fechaIngreso" th:field="*{fechaIngreso}" required>
@@ -89,8 +69,17 @@
             <input type="date" id="fechaNacimiento" th:field="*{fechaNacimiento}" required>
 
             <button type="submit" class="full-width">Crear Usuario</button>
-        </form>
+            <a th:href="@{/}" class="button">Volver al Inicio</a>
 
+
+        </form>
     </div>
+
+    <!-- Popups de error o éxito -->
+    <script th:if="${error}">
+        alert('[[${error}]]');
+    </script>
+
+    
 </body>
 </html>

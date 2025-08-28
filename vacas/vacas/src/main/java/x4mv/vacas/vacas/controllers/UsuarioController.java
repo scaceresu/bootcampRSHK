@@ -38,6 +38,7 @@ public class UsuarioController {
         model.addAttribute("roles", usuarioService.listarRoles());
         return "usuario/crear-usuario"; // Sin .html
     }
+    
     @PostMapping("/crear")
     public String crearUsuario(
         @Valid @ModelAttribute("usuario") UsuarioModel usuario,
@@ -50,7 +51,7 @@ public class UsuarioController {
         if (result.hasErrors()) {
             // Retornamos la misma vista con los errores y el objeto usuario
             model.addAttribute("usuario", usuario); // ⚠ Mantener datos en el formulario
-            return "usuario/crear-usuario"; 
+            return "index"; 
         }
 
         try {
@@ -65,7 +66,7 @@ public class UsuarioController {
             // 4️⃣ Error de negocio: mostrar mensaje en la misma vista
             model.addAttribute("error", e.getMessage());
             model.addAttribute("usuario", usuario); // ⚠ Mantener datos ingresados
-            return "usuario/crear-usuario";
+            return "index";
         }
     }
 
