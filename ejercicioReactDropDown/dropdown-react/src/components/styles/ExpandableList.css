@@ -1,0 +1,43 @@
+.expandable-list {
+  max-width: 600px;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 8px;
+  font-family: Arial, sans-serif;
+}
+
+.list-item {
+  border-bottom: 1px solid #ddd;
+}
+
+.list-button {
+  width: 100%;
+  text-align: left;
+  background: transparent;
+  border: none;
+  font-size: 16px;
+  padding: 12px;
+  cursor: pointer;
+  display: flex;
+  justify-content: space-between;
+  color: #0a3a5e;
+}
+
+.list-button:hover {
+  background: rgba(0, 123, 255, 0.05);
+}
+
+.arrow {
+  transition: transform 0.2s ease-in-out;
+}
+
+.arrow.open {
+  transform: rotate(90deg);
+}
+
+.list-content {
+  padding: 8px 12px;
+  font-size: 14px;
+  color: #333;
+  background: #f9f9f9;
+}

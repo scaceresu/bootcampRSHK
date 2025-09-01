@@ -1,0 +1,88 @@
+/* Accordion.css */
+.accordion {
+  width: 100%;
+  max-width: 800px;
+  margin: 0 auto;
+  font-family: Arial, sans-serif;
+}
+
+.accordion-item {
+  margin-bottom: 15px;
+  border-radius: 6px;
+  overflow: hidden;
+  box-shadow: 0 2px 6px rgba(0, 0, 0,  ͦ0.1);
+}
+
+.accordion-header {
+  background-color: #e6f2ff;
+  padding: 16px 20px;
+  cursor: pointer;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  transition: background-color 0.2s ease;
+  border-left: 4px solid #007acc;
+}
+
+.accordion-header:hover {
+  background-color: #d4e6ff;
+}
+
+.accordion-header.active {
+  background-color: #cce5ff;
+  border-left-color: #005c99;
+}
+
+.accordion-header h3 {
+  margin: 0;
+  font-size: 16px;
+  font-weight: 600;
+  color: #333;
+}
+
+.accordion-header strong {
+  margin: 0;
+  font-size: 16px;
+  color: #333;
+}
+
+.accordion-icon {
+  font-size: 18px;
+  font-weight: bold;
+  color: #007acc;
+}
+
+.accordion-content {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.3s ease;
+  background-color: white;
+}
+
+.accordion-content.open {
+  max-height: 500px; /* Ajusta según el contenido máximo esperado */
+}
+
+.accordion-content p {
+  margin: 0;
+  padding: 20px;
+  line-height: 1.6;
+  color: #555;
+  border-left: 4px solid #e6f2ff;
+}
+
+/* Separadores visuales como en la imagen */
+.accordion-item:not(:last-child) {
+  border-bottom: 1px solid #e0e0e0;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .accordion-header {
+    padding: 14px 16px;
+  }
+  
+  .accordion-content p {
+    padding: 16px;
+  }
+}
