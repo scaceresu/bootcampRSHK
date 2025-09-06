@@ -1,0 +1,13 @@
+package x4mv.userapp.userappbackend.controllers;
+
+public class ErrorDto {
+    private String message;
+
+    public ErrorDto(String message) {
+        this.message = message;
+    }
+
+    public String getMessage() {
+        return message;
+    }
+}

@@ -1,0 +1,14 @@
+{
+    "configurations": [
+        {
+            "type": "java",
+            "name": "Spring Boot-UserappbackendApplication<userappbackend>",
+            "request": "launch",
+            "cwd": "${workspaceFolder}",
+            "mainClass": "x4mv.userapp.userappbackend.UserappbackendApplication",
+            "projectName": "userappbackend",
+            "args": "",
+            "envFile": "${workspaceFolder}/.env"
+        }
+    ]
+}
